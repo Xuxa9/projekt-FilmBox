@@ -103,4 +103,37 @@ const filmy = [
 			'Na zámek v podhůří Krkonoš přijíždí jeho nový majitel Štěpán se svojí snoubenkou, krásnou komtesou Blankou, a mladším bratrem Adamem. Cestou kočár nešťastně srazí kolemjdoucí dívku, Adam jí pomůže a ona se do něj zamiluje. Na zámku Adam objeví starou vlašskou knihu, která by měla obsahovat cestu k pokladům. Tajemné značky vlašské knihy však nedokáže vyluštit ani národopisec Jiráček, který v kraji sbírá pověsti a nevychází z údivu nad tím, že zdejší lidé stále věří v Krakonoše. Na zámku se objeví záhadný cizinec a nabídne Štěpánovi, že jej k pokladu za určitých podmínek dovede. Výprava do hor může začít. Naplní se Liduščina láska k Adamovi? Jakou záhadu skrývá starý obraz na zámku Hůrka a co strašlivého se v horách kdysi odehrálo? A kdo je vlastně Krakonoš a jaké je jeho největší tajemství? (csfd.cz, Česká televize)',
 		premiera: '2022-12-24',
 	},
+	{
+		id: 'avatar',
+		nazev: 'Avatar: The Way of Water',
+		plakat: {
+			url: 'https://image.tmdb.org/t/p/original/yXLr49f3kNFrgUZpLrTA0M2yHTx.jpg',
+			sirka: 485,
+			vyska: 688,
+		},
+		ochutnavka: 'Dobrozdružný fantasy příběh.',
+		popis:
+			'Příběh vrátí diváky zpět do nádherného světa Pandory ve velkolepém a strhujícím dobrodružství plném akce. Ve filmu Avatar: The Way of Water se po více jak deseti letech znovu setkáváme s Jakem Sullym, Neytiri a jejich dětmi, kteří stále bojují za to, aby se udrželi v bezpečí a naživu. ',
+		premiera: '2022-12-15',
+	},
 ]
+
+// ukol 5
+const filmID = window.location.hash.slice(1)
+const detailFilmu = filmy.find(i => filmID === i.id)
+console.log(detailFilmu)
+
+const detailFilmy = document.querySelector("#detail-filmu");
+
+const nazevElement = detailFilmy.querySelector(".card-title");
+nazevElement.textContent = detailFilmu.nazev;
+
+const popisElement = detailFilmy.querySelector(".card-text");
+popisElement.textContent = detailFilmu.popis;
+
+const odkazElement = detailFilmy.querySelector(".col-md-5 img");
+odkazElement.src = detailFilmu.plakat.url;
+
+
+
+
