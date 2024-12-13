@@ -123,17 +123,29 @@ const filmID = window.location.hash.slice(1)
 const detailFilmu = filmy.find(i => filmID === i.id)
 console.log(detailFilmu)
 
-const detailFilmy = document.querySelector("#detail-filmu");
+const detailFilmy = document.querySelector("#detail-filmu")
 
-const nazevElement = detailFilmy.querySelector(".card-title");
-nazevElement.textContent = detailFilmu.nazev;
+const nazevElement = detailFilmy.querySelector(".card-title")
+nazevElement.textContent = detailFilmu.nazev
 
-const popisElement = detailFilmy.querySelector(".card-text");
-popisElement.textContent = detailFilmu.popis;
+const popisElement = detailFilmy.querySelector(".card-text")
+popisElement.textContent = detailFilmu.popis
 
-const odkazElement = detailFilmy.querySelector(".col-md-5 img");
-odkazElement.src = detailFilmu.plakat.url;
+const odkazElement = detailFilmy.querySelector(".col-md-5 img")
+odkazElement.src = detailFilmu.plakat.url
 
-
-
-
+// ukol 8
+const formElm = document.querySelector("#note-form")
+formElm.addEventListener("submit",(e) => {
+	e.preventDefault()
+	
+	const checkbox = document.querySelector("#terms-checkbox")
+	const poznamka = document.querySelector("#message-input").value
+	if(poznamka === "") {
+		formElm.classList.add("is-invalid")
+	} else if(!checkbox.checked) {
+		formElm.classList.add("is-invalid")
+	} else {
+		formElm.innerHTML = `<p class="card-text">${poznamka}</p>`
+	}
+})
