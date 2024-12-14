@@ -141,10 +141,11 @@ formElm.addEventListener("submit",(e) => {
 	
 	const checkbox = document.querySelector("#terms-checkbox")
 	const poznamka = document.querySelector("#message-input").value
+	const boxPoznamka = document.querySelector("#message-input")
 	if(poznamka === "") {
-		formElm.classList.add("is-invalid")
+		boxPoznamka.classList.add("is-invalid"); boxPoznamka.focus()
 	} else if(!checkbox.checked) {
-		formElm.classList.add("is-invalid")
+		checkbox.classList.add("is-invalid"); checkbox.focus()
 	} else {
 		formElm.innerHTML = `<p class="card-text">${poznamka}</p>`
 	}
