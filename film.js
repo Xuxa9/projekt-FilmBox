@@ -150,3 +150,23 @@ formElm.addEventListener("submit",(e) => {
 		formElm.innerHTML = `<p class="card-text">${poznamka}</p>`
 	}
 })
+
+// ukol 6
+const datumElm = document.querySelector("#premiera")
+const datumPremiera = dayjs(`${detailFilmu.premiera}`).format('D. M. YYYY')
+datumElm.innerHTML = `Premiéra <strong>${datumPremiera}</strong>`
+const rozdilDnu = dayjs(`${detailFilmu.premiera}`).diff(dayjs(), 'days')
+
+if(rozdilDnu === 0 ) {
+	datumElm.innerHTML += `, což je dnes.`
+} else if (rozdilDnu < 0) {
+	datumElm.innerHTML += `, což bylo před ${Math.abs(rozdilDnu)} dny.`
+} else if (rozdilDnu > 0) {
+	datumElm.innerHTML += `, což je za ${rozdilDnu} dnů.`
+} else if (rozdilDnu === 1) {
+	datumElm.innerHTML += `, což je zítra.`
+} else if (rozdilDnu === -1) {
+	datumElm.innerHTML += `, což bylo včera.`
+} else {
+ console.log("chyba vypoctu")
+}
