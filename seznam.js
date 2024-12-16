@@ -123,7 +123,7 @@ const seznamFilmu = document.querySelector("#seznam-filmu");
 seznamFilmu.innerHTML = "";
 
 filmy.forEach(i => {
-	document.body.innerHTML += `
+	seznamFilmu.innerHTML += `
 	<div class="col">
    <div class="card">
       <img
